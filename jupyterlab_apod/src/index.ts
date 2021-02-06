@@ -3,6 +3,7 @@ import {
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
+import { ICommandPalette } from '@jupyterlab/apputils';
 
 /**
  * Initialization data for the jupyterlab_apod extension.
@@ -10,8 +11,10 @@ import {
 const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab_apod:plugin',
   autoStart: true,
-  activate: (app: JupyterFrontEnd) => {
-    console.log('JupyterLab extension jupyterlab_apod is activated!');
+  requires: [ICommandPalette],
+  activate: (app: JupyterFrontEnd, palette: ICommandPalette) => {
+    console.log('JupyterLab extension jupyterlab_apod is activated xD!');
+    console.log('ICommandPalette:', palette);
   }
 };
 
